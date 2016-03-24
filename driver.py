@@ -68,8 +68,7 @@ def main():
 			vpc_conn.associate_address(instance_id=instance.id,
 								allocation_id=eip.allocation_id)
 		print "%s started" % (name,)
-	with open('next_steps.md', 'w') as next_steps:
-		next_steps.write(NEXT_STEPS_CONTENT % ())
+	print "Build complete."
 
 
 if __name__ == '__main__':
