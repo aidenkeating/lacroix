@@ -1,0 +1,27 @@
+{
+	"alias": "akeating",
+	"region": "eu-west-1",
+	"keyName": "akeating_cloud",
+	"instances": {
+		"mongodb": {
+			"ami": "ami-f95ef58a",
+			"public": false
+		},
+		"webserver-1": {
+			"ami": "ami-f95ef58a",
+			"public": false
+		},
+		"webserver-2": {
+			"ami": "ami-f95ef58a",
+			"public": false
+		},
+		"loadbalancer": {
+			"ami": "ami-f95ef58a",
+			"public": true
+		},
+		"workstation": {
+			"ami": "ami-f95ef58a",
+			"public": true
+		}
+	}
+}
