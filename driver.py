@@ -44,6 +44,7 @@ def main():
 	                                vpc.id)
 
 	# Authorize access to port 22 and 80 from anywhere
+	# TODO: This should be individual to each node! This way is stupid!
 	sg.authorize(ip_protocol='tcp', from_port=22, to_port=22, cidr_ip='0.0.0.0/0')
 	sg.authorize(ip_protocol='tcp', from_port=80, to_port=80, cidr_ip='0.0.0.0/0')
 	sg.authorize(ip_protocol='tcp', from_port=27017, to_port=27017, cidr_ip='10.0.0.0/24')
@@ -54,7 +55,7 @@ def main():
 																			associate_public_ip_address=True)
 		interfaces = boto.ec2.networkinterface.NetworkInterfaceCollection(interface)
 		reservation = vpc_conn.run_instances(settings['ami'], key_name=config['keyName'],
-										instance_type='t2.micro',
+										instance_type=settings['instance_type'],
 										network_interfaces=interfaces)
 		instance = reservation.instances[0]
 		instance_name = "%s_%s" % (config['alias'], name,)

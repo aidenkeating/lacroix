@@ -31,6 +31,12 @@ The `upskill` cookbook is a scheduling tool that is currently only used for call
 ## Infrastructure Automation (LaCroix)
 LaCroix is a project that can be used to automate the creation of AWS infrastructure inside a VPC using a `config.json` file. The repository for this project is available at: https://github.com/aidenkeating/lacroix
 
+This configuration file specifies information about the nodes required in the infrastructure including the workstation. The chef server is expected to exist already outside of the VPC.
+
+Once the configuration has been defined and the AWS environment variables have been set the program can be started. It will first build a VPC, it will then begin to place each defined instance inside the VPC. If the `public` setting is enabled then the instance will be given an elastic IP.
+
+LaCroix does not perform any Chef tasks, it only builds the infrastructure. It felt too specific to make the program work with Chef, currently it's separation makes LaCroix general purpose. Once the infrastructure is built however there are helper scripts provided to install chef workstation.
+
 ## Issues
 The main issues experienced during the project were that the `haproxy` cookbook was not automatically running even though the recipe calls `service haproxy start`. The reason for this is that the `/etc/default/haproxy` file contains a setting called `ENABLED` which is set to 0 by default. A template was created that defaults this setting to 1 and haproxy started working properly.
 

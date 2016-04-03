@@ -5,23 +5,28 @@
 	"instances": {
 		"mongodb": {
 			"ami": "ami-f95ef58a",
-			"public": false
+			"public": false,
+			"instance_type": "t2.micro"
 		},
 		"webserver-1": {
 			"ami": "ami-f95ef58a",
-			"public": false
+			"public": false,
+			"instance_type": "t2.micro"
 		},
 		"webserver-2": {
 			"ami": "ami-f95ef58a",
-			"public": false
+			"public": false,
+			"instance_type": "t2.micro"
 		},
 		"loadbalancer": {
 			"ami": "ami-f95ef58a",
-			"public": true
+			"public": true,
+			"instance_type": "t2.micro"
 		},
 		"workstation": {
 			"ami": "ami-f95ef58a",
-			"public": true
+			"public": true,
+			"instance_type": "t2.micro"
 		}
 	}
 }
